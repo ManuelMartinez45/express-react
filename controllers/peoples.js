@@ -25,21 +25,23 @@ peopleRouter.post('/people', async (req,res) => {
 })
 
 // Delete Route
-peopleRouter.delete('/peope/:id', async (req,res) => {
-    try{
+peopleRouter.delete('/people/:id', async (req,res) => {
+    try {
         res.json(await People.findByIdAndDelete(req.params.id))
-    }catch(error){
+      } catch (error) {
         res.status(400).json(error)
-    }
+      }
 })
 
 // Update Route
-peopleRouter.put('/people/:id', (req,res) => {
-    try{
-        res.json(await People.findByIdAndUpdate(req.params.id, req.body, { new: true }))
-    }catch{
+peopleRouter.put('/people/:id', async (req,res) => {
+    try {
+        res.json(
+          await People.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        )
+      } catch (error) {
         res.status(400).json(error)
-    }
+      }
 })
 
 
