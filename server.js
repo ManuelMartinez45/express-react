@@ -7,7 +7,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 require('dotenv').config()
 
-const {PORT, DATABASE_URL} = process.env
+const {PORT = 3001, DATABASE_URL} = process.env
 
 mongoose.connect(DATABASE_URL)
 mongoose.connection
